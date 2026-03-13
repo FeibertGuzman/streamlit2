@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sector Minero Energético Colombia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-bolt text-brand-500 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl tracking-tight">MineroEnergy<span class="text-brand-500">CO</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#inicio" class="hover:text-brand-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Inicio</a>
+                        <a href="#modulos" class="hover:text-brand-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Módulos</a>
+                        <a href="#tecnologia" class="hover:text-brand-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tecnología</a>
+                        <a href="#instalacion" class="bg-brand-600 hover:bg-brand-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Instalar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
+                        Dashboard <span class="gradient-text">Sector Minero Energético</span> Colombia
+                    </h1>
+                    <p class="text-xl text-gray-400 max-w-2xl">
+                        Panel de control interactivo para el análisis estratégico de proyectos energéticos y mineros. Visualiza datos, optimiza recursos y toma decisiones basadas en evidencia.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap gap-3">
+                    <span class="badge bg-[#FF4B4B]/20 text-[#FF4B4B] border border-[#FF4B4B]/30"><i class="fa-brands fa-python mr-2"></i>Streamlit</span>
+                    <span class="badge bg-[#3776AB]/20 text-[#3776AB] border border-[#3776AB]/30"><i class="fa-brands fa-python mr-2"></i>Python</span>
+                    <span class="badge bg-[#150458]/20 text-[#150458] border border-[#150458]/30"><i class="fa-solid fa-table mr-2"></i>Pandas</span>
+                    <span class="badge bg-[#3F4F75]/20 text-[#3F4F75] border border-[#3F4F75]/30"><i class="fa-solid fa-chart-line mr-2"></i>Plotly</span>
+                    <span class="badge bg-[#003B57]/20 text-[#003B57] border border-[#003B57]/30"><i class="fa-solid fa-database mr-2"></i>SQLite</span>
+                </div>
+
+                <div class="flex gap-4 pt-4">
+                    <a href="https://github.com/FeibertGuzman/streamlit2" target="_blank" class="flex items-center gap-2 bg-white text-dark-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-200 transition-colors">
+                        <i class="fa-brands fa-github"></i> Ver en GitHub
+                    </a>
+                    <a href="#instalacion" class="flex items-center gap-2 bg-brand-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-500 transition-colors shadow-lg shadow-brand-500/25">
+                        <i class="fa-solid fa-download"></i> Quick Start
+                    </a>
+                </div>
+                
+                <div class="pt-8 border-t border-gray-800">
+                    <p class="text-sm text-gray-500">Desarrollado por <a href="https://github.com/FeibertGuzman" class="text-brand-500 hover:underline">Feibert Guzmán</a></p>
+                </div>
+            </div>
+            
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <img src="https://image.qwenlm.ai/public_source/d3e50baa-d99a-4dd2-aba5-ffadacf0c158/13b7dc0e4-5096-45f5-880c-e853fdf8e2a4.png" alt="Dashboard Preview" class="relative rounded-2xl shadow-2xl border border-gray-700 w-full object-cover transform group-hover:scale-[1.01] transition duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section id="modulos" class="py-20 bg-dark-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Módulos del Dashboard</h2>
+                <p class="text-gray-400">Funcionalidades clave para el análisis integral del sector.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-6 rounded-xl hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-500/20 transition-colors">
+                        <i class="fa-solid fa-house text-brand-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Inicio</h3>
+                    <p class="text-gray-400 text-sm">KPIs generales, distribución energética y fuentes de inversión en tiempo real.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-6 rounded-xl hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
+                        <i class="fa-solid fa-building text-purple-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Proyectos</h3>
+                    <p class="text-gray-400 text-sm">Listado detallado y filtrado de proyectos por ubicación geográfica y tipo de energía.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-6 rounded-xl hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition-colors">
+                        <i class="fa-solid fa-chart-line text-green-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Eficiencia</h3>
+                    <p class="text-gray-400 text-sm">Series temporales de generación, costos operativos e indicadores económicos clave.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-6 rounded-xl hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-500/20 transition-colors">
+                        <i class="fa-solid fa-coins text-yellow-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Inversiones</h3>
+                    <p class="text-gray-400 text-sm">Análisis profundo de montos de capital y fuentes de financiamiento (Gobierno, Privado, ONG).</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card p-6 rounded-xl hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-500/20 transition-colors">
+                        <i class="fa-solid fa-briefcase text-pink-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Empresas</h3>
+                    <p class="text-gray-400 text-sm">Mapeo de actores del ecosistema y su participación porcentual por proyecto.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card p-6 rounded-xl hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="fa-solid fa-users text-cyan-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Comunidades</h3>
+                    <p class="text-gray-400 text-sm">Impacto social y beneficiarios locales asociados a cada proyecto energético.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack & Data -->
+    <section id="tecnologia" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Tech Stack -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 flex items-center">
+                        <i class="fa-solid fa-layer-group text-brand-500 mr-3"></i> Stack Tecnológico
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="glass-card p-4 rounded-lg">
+                            <h4 class="font-bold text-brand-400 mb-2">Frontend & Visualización</h4>
+                            <p class="text-gray-300 text-sm">Streamlit para la interfaz rápida y Plotly Express para gráficos interactivos de alta calidad.</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-lg">
+                            <h4 class="font-bold text-brand-400 mb-2">Backend & Datos</h4>
+                            <p class="text-gray-300 text-sm">Python 3.8+ con SQLite3 para gestión ligera de bases de datos relacionales.</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-lg">
+                            <h4 class="font-bold text-brand-400 mb-2">Data Engineering</h4>
+                            <p class="text-gray-300 text-sm">Pandas para procesos ETL, limpieza de datos y análisis exploratorio robusto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Schema -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 flex items-center">
+                        <i class="fa-solid fa-database text-brand-500 mr-3"></i> Esquema de Datos
+                    </h2>
+                    <div class="glass-card p-6 rounded-xl font-mono text-sm overflow-hidden">
+                        <div class="text-purple-400 mb-2">📦 SectorMineroEnergeticoColombia.db</div>
+                        <ul class="space-y-3 text-gray-300 border-l-2 border-gray-700 pl-4">
+                            <li>
+                                <span class="text-brand-400">├── tipos_energia</span>
+                                <span class="text-gray-500 ml-2"># Catálogo: Solar, Eólica, H2, Biomasa</span>
+                            </li>
+                            <li>
+                                <span class="text-brand-400">├── proyectos</span>
+                                <span class="text-gray-500 ml-2"># 5 proyectos piloto con metadata geoespacial</span>
+                            </li>
+                            <li>
+                                <span class="text-brand-400">├── eficiencia_energetica</span>
+                                <span class="text-gray-500 ml-2"># 50 registros: kWh, costos, KPIs</span>
+                            </li>
+                            <li>
+                                <span class="text-brand-400">├── inversiones</span>
+                                <span class="text-gray-500 ml-2"># Fuentes: Gobierno, Privado, ONG</span>
+                            </li>
+                            <li>
+                                <span class="text-brand-400">├── empresas</span>
+                                <span class="text-gray-500 ml-2"># Operadores por proyecto</span>
+                            </li>
+                            <li>
+                                <span class="text-brand-400">└── comunidades_energeticas</span>
+                                <span class="text-gray-500 ml-2"># Beneficiarios locales</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 p-4 bg-brand-900/20 border border-brand-500/20 rounded-lg">
+                        <h4 class="font-bold text-brand-400 mb-2"><i class="fa-solid fa-wrench mr-2"></i> Notas Técnicas</h4>
+                        <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+                            <li>Datos sanitizados en <code>init_db.py</code> (corrección de formatos y typos).</li>
+                            <li>Conexión BD optimizada con <code>@st.cache_data</code>.</li>
+                            <li>Diseño Mobile-First totalmente responsive.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="instalacion" class="py-20 bg-dark-900/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">🚀 Inicio Rápido</h2>
+                <p class="text-gray-400">Sigue estos pasos para ejecutar el dashboard localmente.</p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Step 1 -->
+                <div class="relative pl-8 border-l-2 border-brand-500">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-500"></div>
+                    <h3 class="text-xl font-bold mb-3">1. Clonar repositorio</h3>
+                    <div class="code-block font-mono text-sm text-gray-300">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-500">bash</span>
+                            <button onclick="copyCode(this)" class="text-xs text-brand-500 hover:text-brand-400">Copiar</button>
+                        </div>
+                        <pre>git clone https://github.com/FeibertGuzman/streamlit2
+cd streamlit2</pre>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-8 border-l-2 border-brand-500">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-500"></div>
+                    <h3 class="text-xl font-bold mb-3">2. Instalar dependencias</h3>
+                    <div class="code-block font-mono text-sm text-gray-300">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-500">bash</span>
+                            <button onclick="copyCode(this)" class="text-xs text-brand-500 hover:text-brand-400">Copiar</button>
+                        </div>
+                        <pre>pip install -r requirements.txt</pre>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-8 border-l-2 border-brand-500">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-500"></div>
+                    <h3 class="text-xl font-bold mb-3">3. Inicializar base de datos</h3>
+                    <div class="code-block font-mono text-sm text-gray-300">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-500">bash</span>
+                            <button onclick="copyCode(this)" class="text-xs text-brand-500 hover:text-brand-400">Copiar</button>
+                        </div>
+                        <pre>python init_db.py</pre>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-8 border-l-2 border-brand-500">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-500"></div>
+                    <h3 class="text-xl font-bold mb-3">4. Ejecutar aplicación</h3>
+                    <div class="code-block font-mono text-sm text-gray-300">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-500">bash</span>
+                            <button onclick="copyCode(this)" class="text-xs text-brand-500 hover:text-brand-400">Copiar</button>
+                        </div>
+                        <pre>streamlit run app.py</pre>
+                    </div>
+                    <p class="mt-3 text-green-400 text-sm"><i class="fa-solid fa-check mr-1"></i> La app estará disponible en: <span class="font-bold">http://localhost:8501</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-12 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-bold text-lg text-gray-300">MineroEnergy<span class="text-brand-500">CO</span></span>
+                <p class="text-sm text-gray-500 mt-1">© 2024 Dashboard Sector Minero Energético Colombia</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://github.com/FeibertGuzman/streamlit2" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa-brands fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa-brands fa-linkedin text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(btn) {
+            const pre = btn.parentElement.nextElementSibling;
+            const code = pre.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = '¡Copiado!';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+
